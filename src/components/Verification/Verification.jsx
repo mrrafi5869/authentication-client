@@ -79,7 +79,7 @@ const Verification = () => {
         <div className="lg:w-1/2">
           <div id="recaptcha-container"></div>
           {showOTP ? (
-            <div className="mt-[188px]">
+            <div className="mt-[188px] w-[300px] md:w-[345px] mx-auto">
               <h1 className="text-3xl font-bold mb-4 text-black">
                 Enter the verification <br /> code to continue
               </h1>
