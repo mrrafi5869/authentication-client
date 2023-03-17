@@ -76,10 +76,10 @@ const Verification = () => {
       <Toaster toastOptions={{ duration: 4000 }} />
       <img src={logo} alt="" />
       <div className="lg:flex justify-center items-center">
-        <div className="w-1/2">
+        <div className="lg:w-1/2">
           <div id="recaptcha-container"></div>
           {showOTP ? (
-            <div className="lg:mt-[188px]">
+            <div className="mt-[188px]">
               <h1 className="text-3xl font-bold mb-4 text-black">
                 Enter the verification <br /> code to continue
               </h1>
@@ -118,21 +118,21 @@ const Verification = () => {
               </button>
             </div>
           ) : (
-            <div className="lg:mt-[188px]">
+            <div className="mt-[188px] w-[300px] md:w-[345px] mx-auto">
               <p className="text-gray mb-5">Verify Your Phone Number</p>
-              <p
+              <label
                 htmlFor=""
                 className="font-bold text-gray text-2xl text-center"
               >
                 Enter your Number
-              </p>
+              </label>
               <PhoneInput
                 country={"in"}
                 value={ph}
                 onChange={setPh}
               ></PhoneInput>
               <button
-                className="btn btn-primary mt-10 w-full mx-1"
+                className="btn btn-primary mt-10 w-full"
                 onClick={onSignup}
               >
                 {loading && (

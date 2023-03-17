@@ -26,7 +26,7 @@ const SignUp = () => {
   return (
     <div className="py-10 p-2">
       <img src={logo} alt=""/>
-      <div className="lg:flex justify-center items-center mt-10">
+      <div className="md:flex justify-center items-center mt-10">
         <div className="w-1/2">
           <div className="w-[345px] mx-auto">
             <form onSubmit={handleSignIn}>
