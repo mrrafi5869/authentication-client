@@ -41,13 +41,13 @@ const SignUp = () => {
                   className="input w-full mb-8 bg-gray-200 border"
                   required
                 />
-                {/* <input
+                <input
                 type="text"
                 name=""
                 placeholder="@gmail.com"
                 className="input h-10 w-44 absolute right-1 top-1 flex justify-center items-center"
                 required
-              /> */}
+              />
               </div>
               <div className="form-control relative flex justify-center items-center">
                 <input
