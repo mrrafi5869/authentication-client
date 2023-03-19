@@ -4,15 +4,16 @@ import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 import GbSwiper from "../Swiper/GbSwiper";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../context/AuthProvider";
+import { BiRightArrowAlt } from "react-icons/bi";
 const SignUp = () => {
   const [show, setShow] = useState(false);
-  const [selectedValue, setSelectedValue] = useState('@google.com');
+  const [selectedValue, setSelectedValue] = useState("@google.com");
   const { emailSingIn } = useContext(AuthContext);
   const navigate = useNavigate();
 
   const handleSelectChange = (event) => {
     setSelectedValue(event.target.value);
-  }
+  };
 
   const handleSignIn = (event) => {
     event.preventDefault();
@@ -43,10 +44,14 @@ const SignUp = () => {
                   type="text"
                   name="email"
                   placeholder="Name"
-                  className="input w-full bg-gray-200 focus:bg-white hover:bg-white transition hover:border-blue"
+                  className="input w-full bg-gray-200 focus:bg-white hover:bg-white transition hover:border-blu"
                   required
                 />
-                <select value={selectedValue} onChange={handleSelectChange} className="select w-44 absolute right-1 bg-gray-100 text-gray-400 hover:bg-sky-100 hover:text-blue">
+                <select
+                  value={selectedValue}
+                  onChange={handleSelectChange}
+                  className="select w-44 absolute right-1 bg-gray-100 text-gray-400 hover:bg-sky-100 hover:text-blu"
+                >
                   <option value="@gmail.com">@gmail.com</option>
                   <option value="@yahoo.com">@yahoo.com</option>
                   <option value="@hotmail.com">@hotmail.com</option>
@@ -57,24 +62,41 @@ const SignUp = () => {
                   type={show ? "text" : "password"}
                   name="password"
                   placeholder="Password"
-                  className="input w-full bg-gray-200 transition hover:border hover:border-blue hover:bg-white"
+                  className="input w-full bg-gray-200 transition hover:border hover:border-blu hover:bg-white"
                   required
                 />
-                <div onClick={() => setShow(!show)}>
+                <div
+                  onClick={() => setShow(!show)}
+                  className="absolute right-2 top-3 text-2xl flex justify-center items-center cursor-pointer"
+                >
                   {show ? (
-                    <AiOutlineEyeInvisible className="absolute text-2xl right-2 top-0 h-full flex justify-center items-center cursor-pointer"></AiOutlineEyeInvisible>
+                    <AiOutlineEyeInvisible></AiOutlineEyeInvisible>
                   ) : (
-                    <AiOutlineEye className="absolute text-2xl right-2 top-0 h-full flex justify-center items-center cursor-pointer"></AiOutlineEye>
+                    <AiOutlineEye></AiOutlineEye>
                   )}
                 </div>
               </div>
               <Link to="/login">
                 All ready have an Account? Please{" "}
-                <span className="text-blue">Login</span>
+                <span className="text-blu">Login</span>
               </Link>
-              <button className="form-control btn btn-primary mt-10 w-full mx-1">
-                Next
+              <button class="btn btn-primary w-full mt-10 mb-4 relative group overflow-hidden flex space-x-2 items-center">
+                <span class="relative text-sm text-white transition-all duration-300 group-hover:scale-x-100 group-hover:mr-2">Next</span>
+                <div class="flex items-center -space-x-3">
+                  <div class="rounded bg-white origin-left scale-x-0 transition duration-300 group-hover:scale-x-100"></div>
+                  <BiRightArrowAlt className="h-7 w-7 text-white hidden stroke-white -translate-x-2 transition duration-300 group-hover:translate-x-0 group-hover:block"></BiRightArrowAlt>
+                </div>
               </button>
+              <div
+                onClick={() => setShow(!show)}
+                className="absolute right-2 top-3 text-2xl flex justify-center items-center cursor-pointer"
+              >
+                {show ? (
+                  <AiOutlineEyeInvisible></AiOutlineEyeInvisible>
+                ) : (
+                  <AiOutlineEye></AiOutlineEye>
+                )}
+              </div>
             </form>
           </div>
         </div>
