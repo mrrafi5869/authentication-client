@@ -9,7 +9,6 @@ import banner1 from "../../assets/image/Banner (1).png";
 import banner2 from "../../assets/image/Banner (2).png";
 
 const GbSwiper = () => {
-  
   return (
     <div className="container">
       <Swiper

@@ -1,0 +1,19 @@
+.logo {
+    animation: centerme 0.5s;
+    -webkit-animation: centerme 0.5s;
+    position: absolute;
+    z-index: 999; /* To ensure that box is always on the top */
+    animation-fill-mode: forwards; /* So that box doesn't move back to default place*/
+    -webkit-animation-fill-mode: forwards;
+}
+
+@keyframes centerme {
+    0%   {left: 0; top: 0;}
+    100%  {left: 50%;top: 50%;margin-top: -45px;margin-left: -14px;}
+    /* Left and Top are 50% with margins which are half of width and height */
+}
+
+@-webkit-keyframes centerme {
+    0%   {left: 0;}
+    100%  {left: 50%;margin-left: -150px;}
+}

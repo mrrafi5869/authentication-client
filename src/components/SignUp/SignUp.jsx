@@ -8,7 +8,7 @@ import { BiRightArrowAlt } from "react-icons/bi";
 const SignUp = () => {
   const [show, setShow] = useState(false);
   const [selectedValue, setSelectedValue] = useState("@google.com");
-  const { emailSingIn } = useContext(AuthContext);
+  const { emailSingIn, setEmail } = useContext(AuthContext);
   const navigate = useNavigate();
 
   const handleSelectChange = (event) => {
@@ -25,13 +25,14 @@ const SignUp = () => {
         const user = result.user;
         console.log(user);
         navigate("/verification");
+        setEmail(email);
       })
       .catch((err) => console.log(err));
   };
 
   return (
     <div className="py-10 p-2">
-      <img src={logo} alt="" />
+      <img src={logo} alt="" className=" ml-12" />
       <div className="md:flex justify-center items-center mt-10">
         <div className="w-1/2">
           <div className="w-[345px] mx-auto">
@@ -81,7 +82,9 @@ const SignUp = () => {
                 <span className="text-blu">Login</span>
               </Link>
               <button class="btn btn-primary w-full mt-10 mb-4 relative group overflow-hidden flex space-x-2 items-center">
-                <span class="relative text-sm text-white transition-all duration-300 group-hover:scale-x-100 group-hover:mr-2">Next</span>
+                <span class="relative text-sm text-white transition-all duration-300 group-hover:scale-x-100 group-hover:mr-2">
+                  Next
+                </span>
                 <div class="flex items-center -space-x-3">
                   <div class="rounded bg-white origin-left scale-x-0 transition duration-300 group-hover:scale-x-100"></div>
                   <BiRightArrowAlt className="h-7 w-7 text-white hidden stroke-white -translate-x-2 transition duration-300 group-hover:translate-x-0 group-hover:block"></BiRightArrowAlt>
