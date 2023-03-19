@@ -9,8 +9,8 @@ import { AuthContext } from "../../context/AuthProvider";
 const Login = () => {
   const [show, setShow] = useState(false);
   const [forgotEmail, setForgotEmail] = useState('');
-  const [selectedValue, setSelectedValue] = useState("@google.com");
-  const { emailLogin, setEmail, email, resetPassword } =
+  const [selectedValue, setSelectedValue] = useState("gmail.com");
+  const { emailLogin, setEmail, resetPassword } =
     useContext(AuthContext);
   const navigate = useNavigate();
 
@@ -21,6 +21,8 @@ const Login = () => {
   const handleEmail = (event) => {
     const email = event.target.value + selectedValue;
     setForgotEmail(email);
+    console.log(email);
+    console.log(selectedValue);
   };
 
   const forgetPass = () => {
@@ -65,7 +67,7 @@ const Login = () => {
                   name="email"
                   placeholder="Name"
                   className="input w-full bg-gray-200 transition focus:bg-white hover:bg-white hover:border-blu"
-                  onBlur={handleEmail}
+                  onBlur={handleEmail} 
                   required
                 />
                 <select
