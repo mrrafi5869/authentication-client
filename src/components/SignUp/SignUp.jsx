@@ -6,13 +6,18 @@ import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../context/AuthProvider";
 const SignUp = () => {
   const [show, setShow] = useState(false);
+  const [selectedValue, setSelectedValue] = useState('@google.com');
   const { emailSingIn } = useContext(AuthContext);
   const navigate = useNavigate();
+
+  const handleSelectChange = (event) => {
+    setSelectedValue(event.target.value);
+  }
 
   const handleSignIn = (event) => {
     event.preventDefault();
     const form = event.target;
-    const email = form.email.value;
+    const email = form.email.value + selectedValue;
     const password = form.password.value;
     emailSingIn(email, password)
       .then((result) => {
@@ -25,7 +30,7 @@ const SignUp = () => {
 
   return (
     <div className="py-10 p-2">
-      <img src={logo} alt=""/>
+      <img src={logo} alt="" />
       <div className="md:flex justify-center items-center mt-10">
         <div className="w-1/2">
           <div className="w-[345px] mx-auto">
@@ -38,23 +43,21 @@ const SignUp = () => {
                   type="text"
                   name="email"
                   placeholder="Name"
-                  className="input w-full mb-8 bg-gray-200 border"
+                  className="input w-full bg-gray-200 focus:bg-white hover:bg-white transition hover:border-blue"
                   required
                 />
-                <input
-                type="text"
-                name=""
-                placeholder="@gmail.com"
-                className="input h-10 w-44 absolute right-1 top-1 flex justify-center items-center"
-                required
-              />
+                <select value={selectedValue} onChange={handleSelectChange} className="select w-44 absolute right-1 bg-gray-100 text-gray-400 hover:bg-sky-100 hover:text-blue">
+                  <option value="@gmail.com">@gmail.com</option>
+                  <option value="@yahoo.com">@yahoo.com</option>
+                  <option value="@hotmail.com">@hotmail.com</option>
+                </select>
               </div>
-              <div className="form-control relative flex justify-center items-center">
+              <div className="form-control relative flex justify-center items-center mt-8">
                 <input
                   type={show ? "text" : "password"}
                   name="password"
                   placeholder="Password"
-                  className="input w-full bg-gray-200"
+                  className="input w-full bg-gray-200 transition hover:border hover:border-blue hover:bg-white"
                   required
                 />
                 <div onClick={() => setShow(!show)}>
