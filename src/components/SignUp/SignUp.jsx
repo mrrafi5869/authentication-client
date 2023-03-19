@@ -7,7 +7,7 @@ import { AuthContext } from "../../context/AuthProvider";
 import { BiRightArrowAlt } from "react-icons/bi";
 const SignUp = () => {
   const [show, setShow] = useState(false);
-  const [selectedValue, setSelectedValue] = useState("@google.com");
+  const [selectedValue, setSelectedValue] = useState("@gmail.com");
   const { emailSingIn, setEmail } = useContext(AuthContext);
   const navigate = useNavigate();
 
@@ -49,8 +49,7 @@ const SignUp = () => {
                   required
                 />
                 <select
-                  value={selectedValue}
-                  onChange={handleSelectChange}
+                  onblur={handleSelectChange}
                   className="select w-44 absolute right-1 bg-gray-100 text-gray-400 hover:bg-sky-100 hover:text-blu"
                 >
                   <option value="@gmail.com">@gmail.com</option>
