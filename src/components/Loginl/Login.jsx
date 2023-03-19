@@ -9,7 +9,7 @@ import { AuthContext } from "../../context/AuthProvider";
 const Login = () => {
   const [show, setShow] = useState(false);
   const [forgotEmail, setForgotEmail] = useState('');
-  const [selectedValue, setSelectedValue] = useState("gmail.com");
+  const [selectedValue, setSelectedValue] = useState("");
   const { emailLogin, setEmail, resetPassword } =
     useContext(AuthContext);
   const navigate = useNavigate();
@@ -72,7 +72,7 @@ const Login = () => {
                 />
                 <select
                   value={selectedValue}
-                  onChange={handleSelectChange}
+                  onBlur={handleSelectChange}
                   className="select w-44 absolute right-1 bg-gray-100 text-gray-400 hover:bg-blue-200 hover:text-blu"
                 >
                   <option value="@gmail.com">@gmail.com</option>
