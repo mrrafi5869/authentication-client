@@ -71,7 +71,6 @@ const Login = () => {
                   required
                 />
                 <select
-                  value={selectedValue}
                   onBlur={handleSelectChange}
                   className="select w-44 absolute right-1 bg-gray-100 text-gray-400 hover:bg-blue-200 hover:text-blu"
                 >
